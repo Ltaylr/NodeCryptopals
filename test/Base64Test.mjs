@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { encodeBase64 } from '../ChallangeSet1/Base64.js';
-import { hexToBytes, stringToBytes } from '../ChallangeSet1/convertToBytes.js';
+import { hexToBytes, stringToBytes } from '../ChallangeSet1/ConvertToBytes.js';
 
 
 
@@ -11,6 +11,7 @@ describe('Base 64 encoding tests', () => {
     
     const str2 = 'This is a test string for one = in the padding.'
     const str3 = 'This is a test string for two = in the padding'
+
     const res1 = encodeBase64(hexToBytes(hex));
     const res2 = encodeBase64(stringToBytes(str2));
     const res3 = encodeBase64(stringToBytes(str3));
