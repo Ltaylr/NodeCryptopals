@@ -1,0 +1,20 @@
+{
+  "name": "cryptopals",
+  "version": "1.0.0",
+  "description": "A project for working through Cryptopals challanges",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --exit"
+  },
+  "author": "Lawrence Taylor",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "chai": "^5.1.0",
+    "mocha": "^10.4.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
