@@ -7,10 +7,12 @@ exports.encodeBase64 = (bytes) => {
 
     const table = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
     let base64String = '';
-    for(let i = 0; i < bytes.length; i+=3){
+    let remainder = bytes.length % 3;
+    let i = 0;
+    for(i = 0; i < bytes.length - remainder; i+=3){
 
         let byte1 = bytes[i];
-        let byte2 = (bytes.length > i+1) ? bytes[i+1] : 0; //figure out how to do padding correctly
+        let byte2 = (bytes.length > i+1) ? bytes[i+1] : 0; 
         let byte3 = (bytes.length > i+2) ? bytes[i+2] : 0;
         base64String += table[(byte1 >> 2) & 63];
         base64String += table[((byte1 & 3) << 4) | (byte2 >> 4)];
@@ -18,6 +20,28 @@ exports.encodeBase64 = (bytes) => {
         base64String += table[byte3 & 63];
 
     }
+
+    if(remainder > 0)
+    {
+        //add padding
+        if(remainder == 1)
+        {
+            let byte1 = bytes[i];
+            base64String += table[(byte1 >> 2) & 63];
+            base64String += table[((byte1 & 3) << 4)];
+            base64String += "==";
+        }
+        else{
+            let byte1 = bytes[i];
+            let byte2 = bytes[i+1];
+            base64String += table[(byte1 >> 2) & 63];
+            base64String += table[((byte1 & 3) << 4) | (byte2 >> 4)];
+            base64String += table[((byte2 << 2) & 60)];
+            base64String += "=";
+        }
+
+    }
+
     return base64String;
 }
 

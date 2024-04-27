@@ -13,3 +13,8 @@ exports.bytesToHexString = (bytes) => {
         return ('0' + (byte & 0xFF).toString(16)).slice(-2);
     }).join('');
 }
+
+exports.stringToBytes = (str) => {
+    const encoder = new TextEncoder();
+    return encoder.encode(str);
+}
