@@ -63,7 +63,7 @@ const scoreKey = (bytes, key) => {
 
     for(let i = 0; i < bytes.length; i++)
     {
-        const c = (bytes[i] ^ key.charCodeAt(0));
+        const c = (bytes[i] ^ key);
         const k = String.fromCharCode(c);
         const score = frequencyTable(k);
         sum += score;
@@ -85,13 +85,25 @@ exports.decodeSingleKey = (bytes, key) =>
 
 exports.analyzeLetterFrequency = (bytes) =>
 {
-    let table = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    //let table = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';//abcdefghijklmnopqrstuvwxyz0123456789';
     let scores = [];
-    for(const char of table)
+    for(let i = 0; i < 256; i++)
     {
-        scores.push([scoreKey(bytes, char), char]);
+        scores.push([scoreKey(bytes, i), String.fromCharCode(i)]);
     }
     const sorted = scores.sort(function(a,b) {return b[0] - a[0]})
+    return sorted;
+}
+
+exports.findEncodedString = (byteArray) => {
+
+    const scoreList = []
+    for(let i = 0; i < byteArray.length; i++)
+    {
+        let scores = this.analyzeLetterFrequency(byteArray[i]);
+        scoreList.push([scores, i]);
+    }
+    const sorted = scoreList.sort(function(a,b) {return b[0][0][0] - a[0][0][0]});
     return sorted;
 }
 

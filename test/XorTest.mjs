@@ -6,7 +6,7 @@ import { hexToBytes, bytesToHexString } from  '../ChallangeSet1/ConvertToBytes.j
 describe("test for fixed xor section", () => {
     const str1 = '1c0111001f010100061a024b53535009181c';
     const str2 = '686974207468652062756c6c277320657965';
-    
+
     const bytes1 = hexToBytes(str1);
     const bytes2 = hexToBytes(str2);
 
