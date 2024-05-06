@@ -1,5 +1,5 @@
-import { getHammingDistance, getHammingDistanceOfByteArray } from "../ChallangeSet1/HammingDistance.js";
-import { stringToBytes } from '../ChallangeSet1/ConvertToBytes.js';
+import { getHammingDistance, getHammingDistanceOfByteArray } from "../ChallengeSet1/HammingDistance.js";
+import { stringToBytes } from '../ChallengeSet1/ConvertToBytes.js';
 import { expect } from 'chai';
 
 describe('hamming distance tests, single byte', () =>

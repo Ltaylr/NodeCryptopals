@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { encodeBase64, decodeBase64 } from '../ChallangeSet1/Base64.js';
-import { hexToBytes, stringToBytes } from '../ChallangeSet1/ConvertToBytes.js';
+import { encodeBase64, decodeBase64 } from '../ChallengeSet1/Base64.js';
+import { hexToBytes, stringToBytes } from '../ChallengeSet1/ConvertToBytes.js';
 
 
 
