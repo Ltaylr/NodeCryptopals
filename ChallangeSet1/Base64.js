@@ -45,7 +45,28 @@ exports.encodeBase64 = (bytes) => {
     return base64String;
 }
 
-exports.decodeBase64 = (bytes) => {
+exports.decodeBase64 = (str) => {
     //TODO - don't need to do this yet. 
+    const table = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+    let decodedString = '';
+    
+    let i = 0;
+    for(i = 0; i < str.length; i+=4){
+
+        let byte1 = table.indexOf(str[i]);
+        let byte2 = table.indexOf(str[i+1]);
+        let byte3 = (str[i+2] !== '=') ? table.indexOf(str[i+2]) : 0;
+        let byte4 = (str[i+3] !== '=') ? table.indexOf(str[i+3]) : 0;
+
+        decodedString += String.fromCharCode((byte1 << 2) | ((byte2 >> 4) & 3));
+        if(str[i+2] === '=') break;
+        decodedString += String.fromCharCode(((byte2 << 4) & 240) | ((byte3 >> 2) & 15));
+        if(str[i+3] === '=') break;
+        decodedString += String.fromCharCode(((byte3 << 6) & 192) | (byte4 & 63));
+        
+
+    }
+
+    return decodedString;
 }
 

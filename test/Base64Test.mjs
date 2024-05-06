@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { encodeBase64 } from '../ChallangeSet1/Base64.js';
+import { encodeBase64, decodeBase64 } from '../ChallangeSet1/Base64.js';
 import { hexToBytes, stringToBytes } from '../ChallangeSet1/ConvertToBytes.js';
 
 
@@ -30,5 +30,24 @@ describe('Base 64 encoding tests', () => {
         expect(res3)
         .to.equal('VGhpcyBpcyBhIHRlc3Qgc3RyaW5nIGZvciB0d28gPSBpbiB0aGUgcGFkZGluZw==');
     });
+})
+
+describe('base64 decoding tests', () => {
+    const decoded 
+    = 'In Xanadu did Kubla Khan A stately pleasure-dome decree: Where Alph, the sacred river, ran Through caverns measureless to man Down to a sunless sea.';
+
+    //const encoded = 'SW4gWGFuYWR1IGRpZCBLdWJsYSBLaGFuCkEgc3RhdGVseSBwbGVhc3VyZS1kb21lIGRlY3JlZToKV2hlcmUgQWxwaCwgdGhlIHNhY3JlZCByaXZlciwgcmFuClRocm91Z2ggY2F2ZXJucyBtZWFzdXJlbGVzcyB0byBtYW4KICAgRG93biB0byBhIHN1bmxlc3Mgc2VhLg==';
+    const encoded = 'SW4gWGFuYWR1IGRpZCBLdWJsYSBLaGFuIEEgc3RhdGVseSBwbGVhc3VyZS1kb21lIGRlY3JlZTogV2hlcmUgQWxwaCwgdGhlIHNhY3JlZCByaXZlciwgcmFuIFRocm91Z2ggY2F2ZXJucyBtZWFzdXJlbGVzcyB0byBtYW4gRG93biB0byBhIHN1bmxlc3Mgc2VhLg==';
+    const test = decodeBase64(encoded);
+    //console.log({
+    //    string1: encodeURI(decoded),
+    //    string2: encodeURI(test)
+    //   });
+    it('base64 decoding test', ()=>{
+        expect(test)
+        .to
+        .equal(decoded);
+    })
+
 })
 
