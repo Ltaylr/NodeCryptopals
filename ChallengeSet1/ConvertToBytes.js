@@ -18,3 +18,8 @@ exports.stringToBytes = (str) => {
     const encoder = new TextEncoder();
     return encoder.encode(str);
 }
+
+exports.bytesToString = (bytes) => {
+    const decoder = new TextDecoder('utf-8');
+    return decoder.decode(bytes);
+}

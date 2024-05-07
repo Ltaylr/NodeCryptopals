@@ -16,6 +16,8 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "aes-js": "^3.1.2",
+    "express": "^4.19.2",
+    "openssl-nodejs": "^1.0.5"
   }
 }

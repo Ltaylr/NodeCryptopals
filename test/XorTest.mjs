@@ -1,7 +1,7 @@
 //const assert = require('assert');
 import { expect } from 'chai';
-import { fixedXor, repeatingXor } from '../ChallangeSet1/XorCiphers.js';
-import { hexToBytes, bytesToHexString, stringToBytes } from  '../ChallangeSet1/ConvertToBytes.js';
+import { fixedXor, repeatingXor } from '../ChallengeSet1/XorCiphers.js';
+import { hexToBytes, bytesToHexString, stringToBytes } from  '../ChallengeSet1/ConvertToBytes.js';
 
 describe("test for fixed xor section", () => {
     const str1 = '1c0111001f010100061a024b53535009181c';

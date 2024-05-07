@@ -54,6 +54,7 @@ const frequencyTable = (c) => {
     case 'q': return 0.11;
     case 'j': return 0.10;
     case 'z': return 0.07;
+    case ' ': return 20.0;
     default: return 0;
     }
     }
@@ -76,7 +77,7 @@ exports.decodeSingleKey = (bytes, key) =>
     let decodedString = '';
     for(let i = 0; i < bytes.length; i++)
     {
-        const c = (bytes[i] ^ key.charCodeAt(0));
+        const c = (bytes[i] ^ key);
         const k = String.fromCharCode(c);
         decodedString += k;
     }
@@ -89,7 +90,7 @@ exports.analyzeLetterFrequency = (bytes) =>
     let scores = [];
     for(let i = 0; i < 256; i++)
     {
-        scores.push([scoreKey(bytes, i), String.fromCharCode(i)]);
+        scores.push([scoreKey(bytes, i), i]);
     }
     const sorted = scores.sort(function(a,b) {return b[0] - a[0]})
     return sorted;

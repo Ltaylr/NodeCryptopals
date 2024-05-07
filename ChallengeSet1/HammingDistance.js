@@ -25,7 +25,7 @@ exports.getHammingDistanceOfByteArray = (bytes1, bytes2) => {
     return dis;
 }
 
-exports.hammingDistanceOfStrings = (str1, str2) =>
+exports.getHammingDistanceOfStrings = (str1, str2) =>
 {
     return this.getHammingDistanceOfByteArray(bytes.stringToBytes(str1), bytes.stringToBytes(str2));
 }
