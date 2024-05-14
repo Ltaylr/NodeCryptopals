@@ -1,7 +1,7 @@
 
 import { readFileSync } from 'fs';
 import { expect } from 'chai'
-import {findKey} from '../ChallengeSet1/breakVigenereCipher.js';
+import {findKey} from '../../ChallengeSet1/breakVigenereCipher.js';
 
 
 describe('breaking Vigenere cipher', () =>{

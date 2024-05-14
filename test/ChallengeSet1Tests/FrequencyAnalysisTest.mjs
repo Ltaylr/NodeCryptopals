@@ -1,6 +1,6 @@
-import {analyzeLetterFrequency, decodeSingleKey, findEncodedString} from '../ChallengeSet1/FrequencyAnalysis.js'
+import {analyzeLetterFrequency, decodeSingleKey, findEncodedString} from '../../ChallengeSet1/FrequencyAnalysis.js'
 import { expect } from 'chai';
-import { hexToBytes, stringToBytes } from '../ChallengeSet1/ConvertToBytes.js';
+import { hexToBytes, stringToBytes } from '../../ChallengeSet1/ConvertToBytes.js';
 import fs from 'fs';
 
 describe('frequency analysis tests', () => {

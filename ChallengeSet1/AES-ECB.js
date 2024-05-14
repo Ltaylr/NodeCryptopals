@@ -11,13 +11,6 @@ exports.decryptAES_ECB = (ciphertext, key, alg) => {
     out += decipher.final('utf-8');
     return out;
 }
-// const encrypted = stringToBytes.stringToBytes(b64.decodeBase64(fs.readFileSync(
-//     './files/aesEcbtest.txt', 'utf-8'
-// )))
-// console.log(encrypted.length);
-// const key = Buffer.from("YELLOW SUBMARINE", "utf-8");
-// const aesEcb = new aesjs.ModeOfOperation.ecb(key);
-// const decryptedBytes = aesEcb.decrypt(encrypted);
-// console.log(aesjs.utils.utf8.fromBytes(decryptedBytes));
+
 
 
